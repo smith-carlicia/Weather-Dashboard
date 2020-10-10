@@ -1,0 +1,25 @@
+span.navbar-brand {
+    color:white;
+    text-align: center;
+}
+.search-container {
+    position: relative;
+    left: 3px;
+    background: whitesmoke;
+}
+.search-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+}
+.h1 {
+    color: white;
+}
+button {
+    display: inline-block;
+}
+.search {
+    padding: 13px;
+    background-color: blue;
+    flex-wrap: wrap;
+}
