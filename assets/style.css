@@ -23,3 +23,21 @@ button {
     background-color: blue;
     flex-wrap: wrap;
 }
+#currentweather {
+    margin-right: 100px;
+    margin-left: 350px;
+    margin-top: 50px; 
+    margin-bottom: 200px;
+    height: 350px;
+    width: 70%;
+    position: absolute;
+    top: 15px;
+}
+.card {
+    margin-right: 100px;
+    margin-left: 350px;
+    height: 100px;
+    width: 35%;
+    position: absolute;
+    top: 450px;
+}
