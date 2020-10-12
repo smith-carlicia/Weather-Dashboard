@@ -33,6 +33,11 @@ button {
     position: absolute;
     top: 15px;
 }
+.header {
+    font-size: 28px;
+    margin-left: 375px;
+    margin-top: 295px;
+}
 .card {
     margin-right: 100px;
     margin-left: 350px;

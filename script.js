@@ -1,12 +1,13 @@
 $(document).ready(function(){
-    $(function() {
+    $(function(){
 
+        var moment = moment().isDate(newDate());
         var userInput = document.querySelector("#search-input");
         var forecast = document.querySelector("#five-day-forecast");
         var searchbutton = document.querySelector("#searchbtn");
-        var searchHistory = doument.querySelector("#search-engine");
+        var searchHistory = document.querySelector("#search-engine");
     
-        moment().format("L");
+        
     
         function searchBar(){
             // var cities = document.querySelector.apply("#city-list");
@@ -15,7 +16,7 @@ $(document).ready(function(){
             var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=649856b9ade664fe56ba1ab8c053cf86"
             var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=649856b9ade664fe56ba1ab8c053cf86"
             console.log(currentWeatherURL);
-            var currentDay = moment().format();
+            // var currentDay = moment().format();
             $(".cityandcurrentdate").text(moment().format("L"));
     
     
