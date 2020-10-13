@@ -33,8 +33,11 @@ button {
     position: absolute;
     top: 15px;
 }
+.cityandcurrentdate {
+    font-size: 32px;
+}
 .header {
-    font-size: 28px;
+    font-size: 36px;
     margin-left: 345px;
     margin-top: 295px;
 }
@@ -50,7 +53,9 @@ button {
 #five-day-forecast {
     display: inline-block;
 }
-.card-one {
-    height: 45px;
-    width: 30px;
+.card-body {
+    height: 100px;
+    width: 40px;
+    margin-left: 350px;
+    margin-bottom: 400px;
 }
