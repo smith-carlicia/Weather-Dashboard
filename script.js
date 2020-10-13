@@ -7,8 +7,9 @@ $(function(){
             var searchbutton = document.querySelector("#searchbtn");
             var searchInput = document.querySelector("#search-input").value;
             var searchHistory = document.querySelector("#search-engine");
-
-            var currentCityName = "";
+            var currentCityName = ("$search-input").val();
+            
+            
             // var userInput = $("#search-input").value;
             console.log("#search-input");
     
@@ -85,7 +86,7 @@ $(function(){
                    return;
                  }
    
-               cityName.push(searchText);
+               currentCityName.push(searchText);
                searchInput.value = "";
                  
                renderSearch();
