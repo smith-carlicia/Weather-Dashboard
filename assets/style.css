@@ -51,11 +51,44 @@ button {
     top: 450px;
 }
 #five-day-forecast {
-    display: inline-block;
+    display:inline-block;
 }
-.card-body {
-    height: 100px;
-    width: 40px;
-    margin-left: 350px;
-    margin-bottom: 400px;
+.card-group {
+    display: inline;
+}
+.card-one {
+    height: 190px;
+    width: 175px;
+    margin-top: 50px;
+    /* margin-left: 350px; */
+    margin-bottom: 50px;
+}
+.card-two {
+    height: 190px;
+    width: 175px;
+    margin-top: 50px;
+    /* margin-left: 400px; */
+    margin-bottom: 50px;
+    /* position: absolute; */
+}
+.card-three {
+    height: 190px;
+    width: 175px;
+    margin-top: 50px;
+    /* margin-left: 450px; */
+    margin-bottom: 50px;
+}
+.card-four {
+    height: 190px;
+    width: 175px;
+    margin-top: 50px;
+    /* margin-left: 400px; */
+    margin-bottom: 50px;
+}
+.card-five {
+    height: 190px;
+    width: 175px;
+    margin-top: 50px;
+    /* margin-left: 400px; */
+    margin-bottom: 50px;
 }
