@@ -12,9 +12,8 @@ span.navbar-brand {
     font-weight: normal;
     font-size: 20px;
 }
-h1 {
+.h1 {
     color: white;
-    text-align: center; 
 }
 button {
     display: inline-block;
@@ -24,7 +23,7 @@ button {
     background-color: blue;
     flex-wrap: wrap;
 }
-.results.currentweather {
+#currentweather {
     margin-right: 100px;
     margin-left: 350px;
     margin-top: 50px; 
@@ -33,8 +32,6 @@ button {
     width: 70%;
     position: absolute;
     top: 15px;
-    outline-style: solid;
-    outline-color: lightgray;
 }
 .cityandcurrentdate {
     font-size: 32px;
@@ -53,44 +50,60 @@ button {
     position: absolute;
     top: 450px;
 }
-h3 {
-    margin-left: 300px;
+#five-day-forecast {
+    display:inline-block;
 }
 /* .card-group {
     display: inline;
-}  */
-/* .card-one {
+}
+} 
+.card-one {
     height: 190px;
+    width: 175px;
     width: 145px;
     margin-top: 50px;
+    /* margin-left: 350px; */
+    /* margin-bottom: 50px;
+}
     margin-left: 350px; 
     margin-bottom: 50px; 
+    left: 400px;
 } 
 .card-two {
     height: 190px;
-    width: 145px;
+    width: 175px;
+    margin-top: 50px; */
+    /* margin-left: 400px; */
+    /* margin-bottom: 50px; */
+    /* position: absolute; */
+    /* width: 145px;
     margin-top: 50px;  
     margin-left: 400px; 
     margin-bottom: 50px; 
 }
 .card-three {
     height: 190px;
+    width: 175px;
     width: 145px;
-    margin-top: 50px;
-    margin-left: 450px;
+    margin-top: 50px; */
+    /* margin-left: 450px; */
+    /* margin-left: 450px;
     margin-bottom: 50px;
 }
 .card-four {
     height: 190px;
+    width: 175px;
     width: 145px;
-    margin-top: 50px;
-    margin-left: 400px; 
+    margin-top: 50px; */
+    /* margin-left: 400px; */
+    /* margin-left: 400px; 
     margin-bottom: 50px;
-} 
+}
 .card-five {
     height: 190px;
+    width: 175px;
     width: 145px;
-    margin-top: 50px;
-    margin-left: 400px;
-     margin-bottom: 50px;
-}  */ 
+    margin-top: 50px; */
+    /* margin-left: 400px; */
+    /* margin-bottom: 50px;
+} */ 
