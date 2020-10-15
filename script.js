@@ -1,14 +1,14 @@
 console.log("hello-world");
 $(document).ready(function() {
       console.log("ready");
-      $("#search-input").on("click", function(event){
+      $("#searchbtn").on("click", function(event){
+        //   localStorage.getItem("#city-list" + currentCityName);
         event.preventDefault();
-        var currentCityName = $("search-input").val();
         var currentCityName = "";
         console.log(currentCityName);
         searchBar(currentCityName);
             function searchBar(currentCityName){
-                
+                var currentCityName = $("#search-input").val();
                 var currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + 
                 currentCityName + "&appid=649856b9ade664fe56ba1ab8c053cf86"
                 console.log(currentWeatherURL);
@@ -22,22 +22,24 @@ $(document).ready(function() {
                 }).then(function(response){
                     console.log(response);
                     // var todayWeather = response.data;
-                    // event.stopPropagation();
-                    // JSON.stringify(response.city.name);
+                    event.stopPropagation();
                     var currentWeatherCard = $(".currentweather");
     
-                    $(".cityandcurrentdate").text(response.name + response.date);
-                    console.log(response.name + response.date);
+
+                    var currentWeather = $(".cityandcurrentdate").text(response.name + response.date + response.icon);
+                    console.log(response.name + response.date + response.icon);
                     // console.log("testing");
-                    $(".icon").attr("src", "http://openweather.org/img/wn" + response.list[0].weather.icon + "@2x.png");
-                    $(".tempF").text("Temperature: " + response.main.temp);
+                    var temperature = $(".tempF").text("Temperature: " + response.main.temp + "F");
                     console.log("Temperature" + response.main.temp);
     
-                    $(".humidity").text("Humidity: " + response.main.humidity + "%");
+                    var humidity = $(".humidity").text("Humidity: " + response.main.humidity + "%");
                     console.log("Humidity: " + response.main.humidity);
     
-                    $(".wind").text("Wind Speed: " + response.wind.speed + "mph");
+                    var wind = $(".wind").text("Wind Speed: " + response.wind.speed + "MPH");
                     console.log("Wind Speed: " + response.wind.speed);
+    
+                    currentWeatherCard.append(currentWeather, temperature, humidity, wind, uv);
+                    $("body").append(currentWeatherCard);
     
                     var tempF = (response.main.temp - 273.15) * 1.80 + 32;
                     $(".temp").text("Temperature (K) " + response.main.temp);
@@ -49,7 +51,7 @@ $(document).ready(function() {
                     var lon = response.city.coord.lon;
 
                     var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=649856b9ade664fe56ba1ab8c053cf86"
-
+                    console.log(unIndexURL);
                     $.ajax({
                         url: uvIndexURL, 
                         method: "GET",
@@ -61,45 +63,64 @@ $(document).ready(function() {
                     });
             
                 // Five day forecast card forms
-                // function cards(currentCityName){
+                cards(currentCityName);
+                function cards(currentCityName){
                 
-                // var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + 
-                // currentCityName + "&appid=649856b9ade664fe56ba1ab8c053cf86"
-                // console.log(forecastURL);
+                var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + 
+                currentCityName + "&appid=649856b9ade664fe56ba1ab8c053cf86"
+                console.log(forecastURL);
                 
-                // $.ajax({
-                //     url: forecastURL,
-                //     method: "GET"
-                // }).then(responseForecast)
-                // {
-                //     console.log(responseForecast);
+                $.ajax({
+                    url: forecastURL,
+                    method: "GET"
+                }).then(response)
+                {
+                    console.log(forecastURL);
+                    console.log(response);
 
-                //     JSON.stringify(response.city.name);
-                //     var cards = ("#card-one", "#card-two", "#card-three", "#card-four", "#card-five");
-                     
-                //     for (var i = 0; i < cards.list.length; i++) {
-                //         if ("#card-one" === ){}
-                //     }
-                //     $("#card-one").text(moment().add(1, 'days'), responseForecast.list[1].weather[0].icon, responseForecast.list[1].main.temp.toFixed(2), responseForecast.list[1].main.humidity);
-        // for (var i = 0; i < response.list.length; i + 8){
-                       
-            //     }
-                // var forecast = document.querySelector("#five-day-forecast");
-        //         var date = $("#card-date").text(response.date);
-        //         var icon = $("#card-icon").text(response.icon);
-        //         var temperature = $("#card-temperature").text(responce.main.temperature);
-        //         var humidity = $("#card-humidity").text(response.humidity);
+                    // JSON.stringify(response.city.name);
+                    var cardOne = $("#card-one");
+                    var cardTwo = $("#card-two");
+                    var cardThree = $("#card-three");
+                    var cardFour = $("#card-four");
+                    var cardFive = $("#card-five");
+                    for (var i = 0; i < 5; i++){
+                        colEl = $("<div>");
+                        colEl.attr("class", "col-sm-2");
+                        $("#five-day-forecast").append(colEl);
+                        cardEl = $("<div>");
+                        cardEl.attr("class", "card small card-body");
+                        colEl.append(cardEl);
+                        dateEl = $("<h5>");
+                        var date = $(response.list[0].dt_txt.slice(0,-9));
+                        dateEl.text(date);
+                        cardEl.append(dateEl);
+                        var icon = $("#card-icon").text(response.weather[3].icon);
+                        iconEl = $("<img>");
+                        iconEl.attr("src", "https://openweathermap.org/img/wn" + icon + "@2x.png");
+                        icon.attr("width", 40);
+                        icon.attr("height", 40);
+                        cardEl.append(iconEl);
+                        tempEl = $("<h5>");
+                        var temperature = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
 
-        //             forecastCards.append(date, icon, temperature, humidity);
-        //             $("body").append(forecastCards);
-            //     }
+                    }
+                var forecast = document.querySelector("#five-day-forecast");
+                var date = $(response.list[0].dt_txt.slice(0,-9));
+                var icon = $("#card-icon").text(response.weather[3].icon);
+                var temperature = $("#card-temperature").text(response.main.temp);
+                var humidity = $("#card-humidity").text(response.humidity);
+
+                    forecast.append(date, icon, temperature, humidity);
+                    $("body").append(cardOne);
+                }
             // }
             //     };
                 // Render search 
                renderSearch();
                function renderSearch(searchInput){
                 var cities = document.querySelector("#city-list");
-                var searchInput = document.querySelector("#search-input").value;
+                var searchInput = document.querySelector("#searchbtn").value;
                 console.log("#city-list");
                    searchInput.innerHTML = "";
                    for (var i = 0; i < cities.length; i++){
@@ -113,42 +134,33 @@ $(document).ready(function() {
                }
         
             };
-            // / Search button click event
-                var searchbutton = document.querySelector("#searchbtn");
-                
-                // searchbutton();
-               searchbutton.addEventListener("click", function(event){
-                var currentCityName = $("search-input").val();
-                   event.preventDefault();
-                   searchBar(currentCityName);
-               });
-
        // Submission
-        
-            //    searchHistory(currentCityName);
-            //     function searchHistory(currentCityName){
-            //         var searchHistory = $("#search-engine");
-            //         var searchHistorybtn = $("searchbtn").text(currentCityName).addClass("city-button");
-            //         searchHistory.prepend(searchHistorybtn);
-            //         $("search-input").val("");
-            //     }
 
-            //      var searchHistory = document.querySelector("#search-engine");
-            //    searchHistory.addEventListener("submit", function(event){
-            //        event.preventDefault();
-            //        var searchText = searchInput.value.trim();
-            //        if (searchText === "") {
-            //            return;
-            //          }
+               searchHistory(currentCityName);
+                function searchHistory(currentCityName){
+                    var searchHistory = $("#search-engine");
+                    var searchHistorybtn = $("searchbtn").text(currentCityName).addClass("city-button");
+                    searchHistory.prepend(searchHistorybtn);
+                    $("search-input").val("");
+                }
+
+                 var searchHistory = document.querySelector("#search-engine");
+               searchHistory.addEventListener("submit", function(event){
+                   event.preventDefault();
+                   var searchText = searchInput.value.trim();
+                   if (searchText === "") {
+                       return;
+                     }
                      
-            //        currentCityName.push(searchText);
-            //        searchInput.value = "";
+                   currentCityName.push(searchText);
+                   searchInput.value = "";
                      
-            //        renderSearch();
-            //    })
+                   renderSearch();
+               })
             //    
                
       }
-      );
+    }
+      )}
         
-});  //end ready
+    );  
