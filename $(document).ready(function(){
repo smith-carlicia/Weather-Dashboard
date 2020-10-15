@@ -159,3 +159,16 @@ $.ajax({
 
        currentWeatherCard.append(currentWeather, temperature, humidity, wind, uv);
                     $("body").append(currentWeatherCard);
+
+
+
+
+                    // / Search button click event
+                var searchbutton = document.querySelector("#searchbtn");
+                
+                // searchbutton();
+               searchbutton.addEventListener("click", function(event){
+                var currentCityName = $("search-input").val();
+                   event.preventDefault();
+                   searchBar(currentCityName);
+               });
