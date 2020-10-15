@@ -55,40 +55,40 @@ button {
 }
 .card-group {
     display: inline;
-}
+} 
 .card-one {
     height: 190px;
-    width: 175px;
+    width: 145px;
     margin-top: 50px;
-    /* margin-left: 350px; */
-    margin-bottom: 50px;
-}
+    margin-left: 350px; 
+    margin-bottom: 50px; 
+    left: 400px;
+} 
 .card-two {
     height: 190px;
-    width: 175px;
-    margin-top: 50px;
-    /* margin-left: 400px; */
-    margin-bottom: 50px;
-    /* position: absolute; */
+    width: 145px;
+    margin-top: 50px;  
+    margin-left: 400px; 
+    margin-bottom: 50px; 
 }
 .card-three {
     height: 190px;
-    width: 175px;
+    width: 145px;
     margin-top: 50px;
-    /* margin-left: 450px; */
+    margin-left: 450px;
     margin-bottom: 50px;
 }
 .card-four {
     height: 190px;
-    width: 175px;
+    width: 145px;
     margin-top: 50px;
-    /* margin-left: 400px; */
+    margin-left: 400px; 
     margin-bottom: 50px;
-}
+} 
 .card-five {
     height: 190px;
-    width: 175px;
+    width: 145px;
     margin-top: 50px;
-    /* margin-left: 400px; */
-    margin-bottom: 50px;
-}
+    margin-left: 400px;
+     margin-bottom: 50px;
+} 
