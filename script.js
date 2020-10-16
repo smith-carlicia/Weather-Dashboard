@@ -74,9 +74,8 @@ $(document).ready(function() {
                 
                 $.ajax({
                     url: forecastURL,
-                    method: "GET"
-                }).then(response)
-                {
+                    method: "GET",
+                }).then(function(response) {
                     console.log(forecastURL);
                     console.log(response);
                     $('#date-1').innerHTML = (response.list[0].dt_txt.slice(0,-9));
@@ -102,21 +101,8 @@ $(document).ready(function() {
                     $('#humidity-3').innerHTML = (response.main.humidity);
                     $('#humidity-4').innerHTML = (response.main.humidity);
                     $('#humidity-5').innerHTML = (response.main.humidity);
-
-
-                    // JSON.stringify(response.city.name);
-                
-                    //     var date = $(response.list[0].dt_txt.slice(0,-9));
-                    //     iconEl.attr("src", "https://openweathermap.org/img/wn" + icon + "@2x.png");
-                    //     
-
-                    }
-                // var forecast = document.querySelector("#five-day-forecast");
-                // var date = $(response.list[0].dt_txt.slice(0,-9));
-                // var icon = $("#card-icon").text(response.weather[3].icon);
-                // var temperature = $("#card-temperature").text(response.main.temp);
-                // var humidity = $("#card-humidity").text(response.humidity);
                 }
+                )}
             // }
             //     };
                 // Render search 
