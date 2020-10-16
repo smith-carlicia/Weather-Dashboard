@@ -14,7 +14,9 @@ $(document).ready(function() {
                 console.log(currentWeatherURL);
     
                 // var currentDay = moment().format();
-                $(".cityandcurrentdate").text(moment().format("L"));
+                // var date = moment().format("L");
+                // $(".cityandcurrentdate").text(date);
+                // $(".cityandcurrentdate").text(moment().format("L"));
         
                 $.ajax({
                     url: currentWeatherURL,
@@ -77,42 +79,43 @@ $(document).ready(function() {
                 {
                     console.log(forecastURL);
                     console.log(response);
+                    $('#date-1').innerHTML = (response.list[0].dt_txt.slice(0,-9));
+                    $('#date-2').innerHTML = (response.list[0].dt_txt.slice(0,-9));
+                    $('#date-3').innerHTML = (response.list[0].dt_txt.slice(0,-9));
+                    $('#date-4').innerHTML = (response.list[0].dt_txt.slice(0,-9));
+                    $('#date-5').innerHTML = (response.list[0].dt_txt.slice(0,-9));
+
+                    $('#icon-1').innerHTML = (response.weather[3].icon);
+                    $('#icon-2').innerHTML = (response.weather[3].icon);
+                    $('#icon-3').innerHTML = (response.weather[3].icon);
+                    $('#icon-4').innerHTML = (response.weather[3].icon);
+                    $('#icon-5').innerHTML = (response.weather[3].icon);
+
+                    $('#temperature-1').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+                    $('#temperature-2').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+                    $('#temperature-3').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+                    $('#temperature-4').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+                    $('#temperature-5').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+
+                    $('#humidity-1').innerHTML = (response.main.humidity);
+                    $('#humidity-2').innerHTML = (response.main.humidity);
+                    $('#humidity-3').innerHTML = (response.main.humidity);
+                    $('#humidity-4').innerHTML = (response.main.humidity);
+                    $('#humidity-5').innerHTML = (response.main.humidity);
+
 
                     // JSON.stringify(response.city.name);
-                    var cardOne = $("#card-one");
-                    var cardTwo = $("#card-two");
-                    var cardThree = $("#card-three");
-                    var cardFour = $("#card-four");
-                    var cardFive = $("#card-five");
-                    for (var i = 0; i < 5; i++){
-                        colEl = $("<div>");
-                        colEl.attr("class", "col-sm-2");
-                        $("#five-day-forecast").append(colEl);
-                        cardEl = $("<div>");
-                        cardEl.attr("class", "card small card-body");
-                        colEl.append(cardEl);
-                        dateEl = $("<h5>");
-                        var date = $(response.list[0].dt_txt.slice(0,-9));
-                        dateEl.text(date);
-                        cardEl.append(dateEl);
-                        var icon = $("#card-icon").text(response.weather[3].icon);
-                        iconEl = $("<img>");
-                        iconEl.attr("src", "https://openweathermap.org/img/wn" + icon + "@2x.png");
-                        icon.attr("width", 40);
-                        icon.attr("height", 40);
-                        cardEl.append(iconEl);
-                        tempEl = $("<h5>");
-                        var temperature = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+                
+                    //     var date = $(response.list[0].dt_txt.slice(0,-9));
+                    //     iconEl.attr("src", "https://openweathermap.org/img/wn" + icon + "@2x.png");
+                    //     
 
                     }
-                var forecast = document.querySelector("#five-day-forecast");
-                var date = $(response.list[0].dt_txt.slice(0,-9));
-                var icon = $("#card-icon").text(response.weather[3].icon);
-                var temperature = $("#card-temperature").text(response.main.temp);
-                var humidity = $("#card-humidity").text(response.humidity);
-
-                    forecast.append(date, icon, temperature, humidity);
-                    $("body").append(cardOne);
+                // var forecast = document.querySelector("#five-day-forecast");
+                // var date = $(response.list[0].dt_txt.slice(0,-9));
+                // var icon = $("#card-icon").text(response.weather[3].icon);
+                // var temperature = $("#card-temperature").text(response.main.temp);
+                // var humidity = $("#card-humidity").text(response.humidity);
                 }
             // }
             //     };
@@ -160,7 +163,7 @@ $(document).ready(function() {
             //    
                
       }
-    }
-      )}
+      )
+      }
         
-    );  
+);  
