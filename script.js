@@ -28,9 +28,10 @@ $(document).ready(function() {
                     var currentWeatherCard = $(".currentweather");
     
 
-                    var currentWeather = $(".cityandcurrentdate").text(response.name + response.date + response.icon);
+                    var currentWeather = $(".cityandcurrentdate").text(response.name);
                     console.log(response.name + response.date + response.icon);
                     // console.log("testing");
+                    var icon = $(".icon").attr("http://openweathermap.org/img/wn" + response.weather.icon + "@2x.png");
                     var temperature = $(".tempF").text("Temperature: " + response.main.temp + "F");
                     console.log("Temperature" + response.main.temp);
     
@@ -78,29 +79,29 @@ $(document).ready(function() {
                 }).then(function(response) {
                     console.log(forecastURL);
                     console.log(response);
-                    $('#date-1').innerHTML = (response.list[0].dt_txt.slice(0,-9));
-                    $('#date-2').innerHTML = (response.list[8].dt_txt.slice(0,-9));
-                    $('#date-3').innerHTML = (response.list[16].dt_txt.slice(0,-9));
-                    $('#date-4').innerHTML = (response.list[24].dt_txt.slice(0,-9));
-                    $('#date-5').innerHTML = (response.list[32].dt_txt.slice(0,-9));
+                    $('#date-1').hmtl(response.list[0].dt_txt.slice(0,-9));
+                    $('#date-2').html(response.list[8].dt_txt.slice(0,-9));
+                    $('#date-3').html(response.list[16].dt_txt.slice(0,-9));
+                    $('#date-4').html(response.list[24].dt_txt.slice(0,-9));
+                    $('#date-5').html(response.list[32].dt_txt.slice(0,-9));
 
-                    $('#icon-1').innerHTML = (response.weather[3].icon);
-                    $('#icon-2').innerHTML = (response.weather[3].icon);
-                    $('#icon-3').innerHTML = (response.weather[3].icon);
-                    $('#icon-4').innerHTML = (response.weather[3].icon);
-                    $('#icon-5').innerHTML = (response.weather[3].icon);
+                    $('#icon-1').html(response.weather.icon);
+                    $('#icon-2').html(response.weather.icon);
+                    $('#icon-3').html(respons.weather.icon);
+                    $('#icon-4').html(response.weather.icon);
+                    $('#icon-5').html(response.weather.icon);
 
-                    $('#temperature-1').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
-                    $('#temperature-2').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
-                    $('#temperature-3').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
-                    $('#temperature-4').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
-                    $('#temperature-5').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
+                    $('#temperature-1').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
+                    $('#temperature-2').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
+                    $('#temperature-3').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
+                    $('#temperature-4').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
+                    $('#temperature-5').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
 
-                    $("#humidity-1").innerHTML = (response.main.humidity);
-                    $('#humidity-2').innerHTML = (response.main.humidity);
-                    $('#humidity-3').innerHTML = (response.main.humidity);
-                    $('#humidity-4').innerHTML = (response.main.humidity);
-                    $('#humidity-5').innerHTML = (response.main.humidity);
+                    $("#humidity-1").html(response.main.humidity);
+                    $('#humidity-2').html(response.main.humidity);
+                    $('#humidity-3').html(response.main.humidity);
+                    $('#humidity-4').html(response.main.humidity);
+                    $('#humidity-5').html(response.main.humidity);
                 }
                 )}
             }
