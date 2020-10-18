@@ -79,23 +79,23 @@ $(document).ready(function() {
                 }).then(function(response) {
                     console.log(forecastURL);
                     console.log(response);
-                    $('#date-1').hmtl(response.list[0].dt_txt.slice(0,-9));
+                    $('#date-1').html(response.list[0].dt_txt.slice(0,-9));
                     $('#date-2').html(response.list[8].dt_txt.slice(0,-9));
                     $('#date-3').html(response.list[16].dt_txt.slice(0,-9));
                     $('#date-4').html(response.list[24].dt_txt.slice(0,-9));
                     $('#date-5').html(response.list[32].dt_txt.slice(0,-9));
 
-                    $('#icon-1').html(response.weather.icon);
+                    $('#icon-1').html(response.weather.list.icon);
                     $('#icon-2').html(response.weather.icon);
                     $('#icon-3').html(respons.weather.icon);
                     $('#icon-4').html(response.weather.icon);
                     $('#icon-5').html(response.weather.icon);
 
-                    $('#temperature-1').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
-                    $('#temperature-2').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
-                    $('#temperature-3').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
-                    $('#temperature-4').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
-                    $('#temperature-5').html(parsint(((response.list[0].main.temp - 273) * 1.8) + 32));
+                    $('#temperature-1').html(parsint(((response.main.temp - 273) * 1.8) + 32));
+                    $('#temperature-2').html(parsint(((response.main.temp - 273) * 1.8) + 32));
+                    $('#temperature-3').html(parsint(((response.main.temp - 273) * 1.8) + 32));
+                    $('#temperature-4').html(parsint(((response.main.temp - 273) * 1.8) + 32));
+                    $('#temperature-5').html(parsint(((response.main.temp - 273) * 1.8) + 32));
 
                     $("#humidity-1").html(response.main.humidity);
                     $('#humidity-2').html(response.main.humidity);
