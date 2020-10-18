@@ -79,10 +79,10 @@ $(document).ready(function() {
                     console.log(forecastURL);
                     console.log(response);
                     $('#date-1').innerHTML = (response.list[0].dt_txt.slice(0,-9));
-                    $('#date-2').innerHTML = (response.list[0].dt_txt.slice(0,-9));
-                    $('#date-3').innerHTML = (response.list[0].dt_txt.slice(0,-9));
-                    $('#date-4').innerHTML = (response.list[0].dt_txt.slice(0,-9));
-                    $('#date-5').innerHTML = (response.list[0].dt_txt.slice(0,-9));
+                    $('#date-2').innerHTML = (response.list[8].dt_txt.slice(0,-9));
+                    $('#date-3').innerHTML = (response.list[16].dt_txt.slice(0,-9));
+                    $('#date-4').innerHTML = (response.list[24].dt_txt.slice(0,-9));
+                    $('#date-5').innerHTML = (response.list[32].dt_txt.slice(0,-9));
 
                     $('#icon-1').innerHTML = (response.weather[3].icon);
                     $('#icon-2').innerHTML = (response.weather[3].icon);
@@ -96,15 +96,15 @@ $(document).ready(function() {
                     $('#temperature-4').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
                     $('#temperature-5').innerHTML = parsint(((response.list[0].main.temp - 273) * 1.8) + 32);
 
-                    $('#humidity-1').innerHTML = (response.main.humidity);
+                    $("#humidity-1").innerHTML = (response.main.humidity);
                     $('#humidity-2').innerHTML = (response.main.humidity);
                     $('#humidity-3').innerHTML = (response.main.humidity);
                     $('#humidity-4').innerHTML = (response.main.humidity);
                     $('#humidity-5').innerHTML = (response.main.humidity);
                 }
                 )}
-            // }
-            //     };
+            }
+      });
                 // Render search 
                renderSearch();
                function renderSearch(searchInput){
@@ -122,7 +122,7 @@ $(document).ready(function() {
                    }
                }
         
-            };
+            
        // Submission
 
                searchHistory(currentCityName);
@@ -150,6 +150,6 @@ $(document).ready(function() {
                
       }
       )
-      }
+      
         
-);  
+      

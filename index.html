@@ -34,87 +34,93 @@
         <link rel="stylesheet" href="./assets/style.css">
     </head>
     <body>
+    <div class="col-sm-12">
         <nav class="navbar navbar-light bg-dark">
             <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
         </nav>
+    </div>
+       <div class="row">
         <div class="col-3 search-container">
-            <form id="search-engine" method="POST">
-                <label class="search-label">Search for a City:</label>
-                <input type="text" id="search-input" />
-                <button class="search" id="searchbtn"><i class="fas fa-search"></i></button>
-            </form>
-            <ul id="city-list"></ul>
-        </div>
-        <div class="card currentweather" id="currentweather">
-            <header class="cityandcurrentdate">
-                <div class="icon"></div>
-            </header>
-            <div class="card-body"></div>
-            <div class="city"></div>
-            <div class="tempF"></div>
-            <div class="humidity"></div>
-            <div class="wind"></div>
-            <div class="uv"></div>
-        </div>
+          <form id="search-engine" method="POST">
+              <label class="search-label">Search for a City:</label>
+              <input type="text" id="search-input" />
+              <button class="search" id="searchbtn"><i class="fas fa-search"></i></button>
+          </form>
+          <ul id="city-list"></ul>
+      </div>
+      <div class="col-sm-9">
+      <div class="card currentweather" id="currentweather">
+          <header class="cityandcurrentdate">
+              <div class="icon"></div>
+          </header>
+          <div class="card-body"></div>
+          <div class="city"></div>
+          <div class="tempF"></div>
+          <div class="humidity"></div>
+          <div class="wind"></div>
+          <div class="uv"></div>
+      </div>
+      </div>
+       </div>
         <!-- <div class="container header"> -->
-            <h3 class=five-day-header>5-Day Forecast:</h3>
-                <div class="row">
-                    <div id="five-day-forecast">
-                            <div class="row">
-                                <div class= "col-sm-2 card text-white bg-primary mb-3" id="card-one"></div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div id="date-1"></div>
-                                            <div id="icon-1"></div>
-                                            <div id="temperature-1"></div>
-                                            <div id="humidity-1"></div>
-                                        </div>
-                            
-                                    </div>  
-                                </div>
-                            </div>
-                        <div class= "col-sm-2 card text-white bg-primary mb-3" id="card-two">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div id="date-2"></div>
-                                    <div id="icon-2"></div>
-                                    <div id="temperature-2"></div>
-                                    <div id="humidity-2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class= "col-sm-2 card text-white bg-primary mb-3" id="card-three">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div id="date-3"></div>
-                                    <div id="icon-3"></div>
-                                    <div id="temperature-3"></div>
-                                    <div id="humidity-3"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class= "col-sm-2 card text-white bg-primary mb-3" id="card-four">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div id="date-4"></div>
-                                    <div id="icon-4"></div>
-                                    <div id="temperature-4"></div>
-                                    <div id="humidity-4"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class= "col-sm-2 card text-white bg-primary mb-3" id="card-five">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div id="date-5"></div>
-                                    <div id="icon-5"></div>
-                                    <div id="temperature-5"></div>
-                                    <div id="humidity-5"></div>
-                                </div>
-                            </div>
-                        </div>
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+              <div class="card-deck">
+                <div class="col-auto mb-3">
+                  <div class="card weather-card">
+                    <div class="card-body">
+                      <div id="date-1"></div>
+                      <div id="icon-1"></div>
+                      <div id="temperature-1"></div>
+                      <div id="humidity-1"></div>
                     </div>
-                </div> 
+                  </div>
+                </div>
+                <div class="col-auto mb-3">
+                  <div class="card weather-card">
+                    <div class="card-body pb-3">
+                      <div id="date-2"></div>
+                      <div id="icon-2"></div>
+                      <div id="temperature-2"></div>
+                      <div id="humidity-2"></div>
+                    </div>
+                  </div>
+                </div>
+              <div class="col-auto mb-3">
+                <div class="card weather-card">
+                  <div class="card-body">
+                    <div id="date-3"></div>
+                    <div id="icon-3"></div>
+                    <div id="temperature-3"></div>
+                    <div id="humidity-3"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto mb-3">
+                <div class="card weather-card">
+                  <div class="card-body">
+                    <div id="date-4"></div>
+                    <div id="icon-4"></div>
+                    <div id="temperature-4"></div>
+                    <div id="humidity-4"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto mb-3">
+                <div class="card weather-card">
+                  <div class="card-body">
+                    <div id="date-5"></div>
+                    <div id="icon-5"></div>
+                    <div id="temperature-5"></div>
+                    <div id="humidity-5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
         <!-- </div> -->
         <script src="moment.js"></script>
         <script 

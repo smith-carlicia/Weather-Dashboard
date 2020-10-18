@@ -24,90 +24,44 @@ button {
     flex-wrap: wrap;
 }
 #currentweather {
-    margin-right: 100px;
-    margin-left: 350px;
-    margin-top: 50px; 
+    /* margin-right: 100px; */
+    margin-left: 1px;
+    margin-top: 5px; 
     margin-bottom: 200px;
-    height: 350px;
-    width: 70%;
-    position: absolute;
+    height: 300px;
+    width: 80%;
     top: 15px;
 }
 .cityandcurrentdate {
     font-size: 32px;
+}
+.tempF {
+    font-size:24px;
+}
+.humidity{
+    font-size: 24px;
+}
+.wind {
+    font-size: 24px;
+}
+.uv {
+    font-size: 24px;
 }
 .header {
     font-size: 36px;
     margin-left: 345px;
     margin-top: 295px;
 }
-.card {
-    margin-right: 100px;
-    margin-left: 350px;
-    margin-top: 300px;
-    height: 100px;
-    width: 35%;
-    position: absolute;
-    top: 450px;
-}
 h3 {
     margin-left: 350px;
     margin-top: 300px;
 }
-/* #five-day-forecast {
-    display:inline-block;
-} */
-/* .card-group {
-    display: inline;
+.weather-card{
+    width: 8rem;
+    height: 10rem;
+    float: left;
+    line-height: 100px;
 }
-} 
-.card-one {
-    height: 190px;
-    width: 175px;
-    width: 145px;
-    margin-top: 50px;
-    /* margin-left: 350px; */
-    /* margin-bottom: 50px;
+.card-body{
+    color: blue;
 }
-    margin-left: 350px; 
-    margin-bottom: 50px; 
-    left: 400px;
-} 
-.card-two {
-    height: 190px;
-    width: 175px;
-    margin-top: 50px; */
-    /* margin-left: 400px; */
-    /* margin-bottom: 50px; */
-    /* position: absolute; */
-    /* width: 145px;
-    margin-top: 50px;  
-    margin-left: 400px; 
-    margin-bottom: 50px; 
-}
-.card-three {
-    height: 190px;
-    width: 175px;
-    width: 145px;
-    margin-top: 50px; */
-    /* margin-left: 450px; */
-    /* margin-left: 450px;
-    margin-bottom: 50px;
-}
-.card-four {
-    height: 190px;
-    width: 175px;
-    width: 145px;
-    margin-top: 50px; */
-    /* margin-left: 400px; */
-    /* margin-left: 400px; 
-    margin-bottom: 50px;
-}
-.card-five {
-    height: 190px;
-    width: 175px;
-    width: 145px;
-    margin-top: 50px; */
-    /* margin-left: 400px; */
-    /* margin-bottom: 50px;
-} */ 
