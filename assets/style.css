@@ -34,18 +34,25 @@ button {
 }
 .cityandcurrentdate {
     font-size: 32px;
+    padding-left: 20px;
 }
 .tempF {
-    font-size:24px;
+    font-size:20px;
+    line-height: 90px;
+    padding-left: 20px;
 }
 .humidity{
-    font-size: 24px;
+    font-size: 20px;
+    line-height: 80px;
+    padding-left: 20px;
 }
 .wind {
-    font-size: 24px;
+    font-size: 20px;
+    padding-left: 20px;
 }
 .uv {
-    font-size: 24px;
+    font-size: 20px;
+    padding-left: 20px;
 }
 .header {
     font-size: 36px;

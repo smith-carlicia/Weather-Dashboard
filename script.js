@@ -31,7 +31,7 @@ $(document).ready(function() {
                     var currentWeather = $(".cityandcurrentdate").text(response.name);
                     console.log(response.name + response.date + response.icon);
                     // console.log("testing");
-                    var icon = $(".icon").attr("http://openweathermap.org/img/wn" + response.weather.icon + "@2x.png");
+                    var icon = $(".icon").attr("http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
                     var temperature = $(".tempF").text("Temperature: " + response.main.temp + "F");
                     console.log("Temperature" + response.main.temp);
     
@@ -44,7 +44,7 @@ $(document).ready(function() {
                     currentWeatherCard.append(currentWeather, temperature, humidity, wind, uv);
                     $("body").append(currentWeatherCard);
     
-                    var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+                    var tempF = ((response.main.temp - 273.15) * 1.80 + 32);
                     $(".temp").text("Temperature (K) " + response.main.temp);
                     $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
 
@@ -79,29 +79,21 @@ $(document).ready(function() {
                 }).then(function(response) {
                     console.log(forecastURL);
                     console.log(response);
-                    $('#date-1').html(response.list[0].dt_txt.slice(0,-9));
-                    $('#date-2').html(response.list[8].dt_txt.slice(0,-9));
-                    $('#date-3').html(response.list[16].dt_txt.slice(0,-9));
-                    $('#date-4').html(response.list[24].dt_txt.slice(0,-9));
-                    $('#date-5').html(response.list[32].dt_txt.slice(0,-9));
+                    for (var i = 0; i <= 32; i += 8){
+                        const columnDiv = $("<div>").addClass("col-auto mb-3");
+                        const cardDiv = $("<div>").addClass("card weather-card");
+                        const cardBody = $("<div>").addClass("card-body").css({"background": "#1e90ff", "color": "white"});
+                        const date = $("<div>").addClass("date").text(response.list[i].dt_txt.slice(0,-9)).css({"font-size": "14px", "line-height": "5px"});
+                        const icon = $("<img>").addClass("icon").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png").css({"height": "45px", "width": "45px"});
+                        const temperature = $("<div>").addClass("temperature").text((("Temp:" + response.list[i].main.temp - 273) * 1.8) + 32).css({"font-size": "12px", "line-height": "5px", "padding-bottom": "5px"});
+                        const humidity = $("<div>").addClass("humidity").text("Humidity:" + response.list[i].main.humidity + "%").css({"font-size": "12px", "line-height": "9px"});
+                        cardBody.append(date, icon, temperature, humidity)
+                        cardDiv.append(cardBody)
+                        columnDiv.append(cardDiv)
+                        $('.card-deck').append(columnDiv)
+                    }
 
-                    $('#icon-1').html(response.weather.list.icon);
-                    $('#icon-2').html(response.weather.icon);
-                    $('#icon-3').html(respons.weather.icon);
-                    $('#icon-4').html(response.weather.icon);
-                    $('#icon-5').html(response.weather.icon);
-
-                    $('#temperature-1').html(parsint(((response.main.temp - 273) * 1.8) + 32));
-                    $('#temperature-2').html(parsint(((response.main.temp - 273) * 1.8) + 32));
-                    $('#temperature-3').html(parsint(((response.main.temp - 273) * 1.8) + 32));
-                    $('#temperature-4').html(parsint(((response.main.temp - 273) * 1.8) + 32));
-                    $('#temperature-5').html(parsint(((response.main.temp - 273) * 1.8) + 32));
-
-                    $("#humidity-1").html(response.main.humidity);
-                    $('#humidity-2').html(response.main.humidity);
-                    $('#humidity-3').html(response.main.humidity);
-                    $('#humidity-4').html(response.main.humidity);
-                    $('#humidity-5').html(response.main.humidity);
+                    // $('#icon-1').attr("http://openweathermap.org/img/wn/" + response.list[0].weather.icon + "@2x.png");
                 }
                 )}
             }
